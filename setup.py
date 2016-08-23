@@ -10,8 +10,11 @@ from setuptools import setup, find_packages
 import sys
 
 
-if zmq_version() < (4,0,0) or czmq_version() < (2, 1, 0):
-    print "ERROR: pyczmq requires libzmq 4.0.0 or later and libczmq 2.1.0 or later"
+if zmq_version() < (4,0,0):
+    print("zmq version 4.0.0 or later")
+    sys.exit(1)
+if czmq_version() < (2, 1, 0):
+    print("libczmq 2.1.0 or later")
     sys.exit(1)
 
 
@@ -33,3 +36,4 @@ setup(
         'cffi',
         ],
 )
+
